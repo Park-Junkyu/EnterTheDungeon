@@ -1,0 +1,14 @@
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\bin\Debug\net6.0\EnterTheDungeon.exe
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\bin\Debug\net6.0\EnterTheDungeon.deps.json
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\bin\Debug\net6.0\EnterTheDungeon.runtimeconfig.json
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\bin\Debug\net6.0\EnterTheDungeon.dll
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\bin\Debug\net6.0\EnterTheDungeon.pdb
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\obj\Debug\net6.0\EnterTheDungeon.GeneratedMSBuildEditorConfig.editorconfig
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\obj\Debug\net6.0\EnterTheDungeon.AssemblyInfoInputs.cache
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\obj\Debug\net6.0\EnterTheDungeon.AssemblyInfo.cs
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\obj\Debug\net6.0\EnterTheDungeon.csproj.CoreCompileInputs.cache
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\obj\Debug\net6.0\EnterTheDungeon.dll
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\obj\Debug\net6.0\refint\EnterTheDungeon.dll
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\obj\Debug\net6.0\EnterTheDungeon.pdb
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\obj\Debug\net6.0\EnterTheDungeon.genruntimeconfig.cache
+D:\Unity\EnterTheDungeon\EnterTheDungeon\EnterTheDungeon\obj\Debug\net6.0\ref\EnterTheDungeon.dll
