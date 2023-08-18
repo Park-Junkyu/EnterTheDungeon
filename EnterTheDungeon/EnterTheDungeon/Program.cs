@@ -35,6 +35,10 @@
                 }else if(inven.menu == 1)
                 {
                     inven.Equip();
+                    if (inven.menu == 0)
+                    {
+                        mainLobby();
+                    }
                 }
             }
             else
@@ -100,6 +104,7 @@
     {
         public List<string> Inven;
         public int menu;
+        public int select;
         public void manageInven()
         {
             Inven = new List<string>();
@@ -139,9 +144,34 @@
             Console.WriteLine("[아이템 이름]   |  [장비 효과]  |  [장비 설명]  ");
             for (int i = 0; i < Inven.Count; i += 3)
             {
-                Console.WriteLine("\t" + Inven[i] + "\t" + Inven[i + 1] + "\t" + Inven[i + 2] + "\n");
+                Console.WriteLine("["+(i/3+1)+"]"+ "\t" + Inven[i] + "\t" + Inven[i + 1] + "\t" + Inven[i + 2] + "\n");
             }
             Console.WriteLine("장착할 장비를 선택하시오");
+            select = int.Parse(Console.ReadLine());
+            if(select != null)
+            {
+                Console.Clear();
+
+                Console.WriteLine("[아이템 목록]");
+                Console.WriteLine("[아이템 이름]   |  [장비 효과]  |  [장비 설명]  ");
+                for (int i = 0; i < Inven.Count; i += 3)
+                {
+                    // 무기 장착시 리스트에 이름을 [E]를 붙혀서 대체하는 방법은 어떨지?
+                    if (select == (i / 3 + 1))
+                    {
+                        Console.WriteLine("[E]" + "[" + (i / 3 + 1) + "]" + "\t" + Inven[i] + "\t" + Inven[i + 1] + "\t" + Inven[i + 2] + "\n");
+                    }
+                    else
+                    {
+                        Console.WriteLine("[" + (i / 3 + 1) + "]" + "\t" + Inven[i] + "\t" + Inven[i + 1] + "\t" + Inven[i + 2] + "\n");
+                    }
+                }
+                Console.WriteLine(" ");
+                Console.WriteLine("0. 나가기");
+                Console.WriteLine(" ");
+                Console.WriteLine("원하시는 행동을 입력하시오");
+                menu = int.Parse(Console.ReadLine());
+            }
         }
         // [아이템목록]
         // [아이템 이름]   |  장비 효과  |  장비 설명
