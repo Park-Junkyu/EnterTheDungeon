@@ -69,11 +69,18 @@
         }
         
         item item = new item();
-        public void Status(bool equip, int WeaponNum)
+        public void StatusPlus(bool equip,int WeaponNum)
         {
             if (equip)
             {
                 Attack += item.WeaponDmg[WeaponNum];
+            }
+        }
+        public void StatusMinus(bool already, int WeaponNum)
+        {
+            if (already)
+            {
+                Attack -= item.WeaponDmg[WeaponNum];
             }
         }
         // 0. 나가기(로비로)
@@ -85,9 +92,9 @@
         public int Effect { get; set; }
         public string script { get; set; }
 
-        public string[] WeaponName = { "Axe", "Bow" };
-        public int[] WeaponDmg = { 5, 10 };
-        public string[] WeaponScrpt = { "Basic Axe", "BasicBow" };
+        public string[] WeaponName = { "Axe", "Bow", "Sword" };
+        public int[] WeaponDmg = { 5, 10, 20 };
+        public string[] WeaponScrpt = { "Basic Axe", "Basic Bow", "Basic Sword" };
 
         public void EquipItem(bool equip, int WeaponNum)
         {
@@ -97,17 +104,15 @@
                 WeaponName[WeaponNum] = "[E]" + WeaponName[WeaponNum];
                 
             }
-        }
-
-        
+        }              
 
         public void UnequipItem(bool unequip, int WeaponNum)
         {
             if (unequip)
             {
-                string substring = "]";
+                string substring = "[";
                 int firstsubstring = WeaponName[WeaponNum].IndexOf(substring);
-                WeaponName[WeaponNum] = WeaponName[WeaponNum].Remove(firstsubstring);
+                WeaponName[WeaponNum] = WeaponName[WeaponNum].Remove(firstsubstring,3);
             }
         }
     }
@@ -125,10 +130,10 @@
             Console.Clear();
 
             Console.WriteLine("[아이템 목록]");
-            Console.WriteLine("[아이템 이름]   |  [장비 효과]  |  [장비 설명]  ");
-            for (int i =0;i<2 ;i++)
+            Console.WriteLine("[아이템 이름]  |  [장비 효과] |  [장비 설명] ");
+            for (int i =0;i<item.WeaponName.Length ;i++)
             {
-                Console.WriteLine(item.WeaponName[i] +"\t|\t"+ item.WeaponDmg[i] +"\t|\t"+ item.WeaponScrpt[i]);
+                Console.WriteLine(item.WeaponName[i] +"\t|\tDamage : "+ item.WeaponDmg[i] +"\t|\t"+ item.WeaponScrpt[i]);
             }
             Console.WriteLine(" ");
             Console.WriteLine("1. 장착 관리");
@@ -143,10 +148,10 @@
         {
             Console.Clear();
             Console.WriteLine("[아이템 목록]");
-            Console.WriteLine("[아이템 이름]   |  [장비 효과]  |  [장비 설명]  ");
+            Console.WriteLine("[아이템 이름]  |  [장비 효과] |  [장비 설명] ");
             for (int i = 0; i < item.WeaponName.Length; i++)
             {
-                Console.WriteLine("["+(i+1)+"]" + item.WeaponName[i] + "\t|\t" + item.WeaponDmg[i] + "\t|\t" + item.WeaponScrpt[i]);
+                Console.WriteLine("["+(i+1)+"]" + item.WeaponName[i] + "\t|\tDamage : " + item.WeaponDmg[i] + "\t|\t" + item.WeaponScrpt[i]);
             }
             Console.WriteLine("장착할 장비를 선택하시오");
             select = int.Parse(Console.ReadLine());
@@ -154,10 +159,18 @@
             {
                 equip = true;
             }
-            item.EquipItem(equip, select-1);
-            targetCharacter.Status(equip,select-1);
-            ShowInven();
-            
+            // 선택한 무기의 이름 배열에서 [E]를 찾아보고 있으면 장착해제, 없으면 장착
+            bool alreadyEquip = item.WeaponName[select - 1].Contains("[E]");
+            if (alreadyEquip)
+            {
+                item.UnequipItem(equip, select - 1);
+                targetCharacter.StatusMinus(alreadyEquip, select - 1);
+            }
+            else
+            {
+                item.EquipItem(equip, select - 1);
+                targetCharacter.StatusPlus(equip, select - 1);
+            }                      
         }
         
         // [아이템목록]
@@ -188,6 +201,11 @@
                         if (inven.menu == 1)
                         {
                             inven.Equip(character);
+                            goto case 2;
+                        }
+                        else if (inven.menu == 0)
+                        {
+                            break;
                         }
                         break;
                     default:
