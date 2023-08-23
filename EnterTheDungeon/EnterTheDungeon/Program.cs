@@ -116,6 +116,25 @@
             }
         }
     }
+
+    // 상점 클래스 추가!(가능하면)
+
+    public class Shop // 제작중...
+    {
+        public string[] ShopName = {" ", " ", " " };
+        public string[] ShopDmg = { " ", " ", " " };
+        public string[] ShopScript = { " ", " ", " " };
+
+        public void BuyItem() // 아이템 구매 -> 목록 끝에 구매완료 표시, 인벤토리 배열에 추가
+        {
+
+        }
+
+        public void SellItem() // 인벤토리 불러온 후 판매할 아이템 선택, 판매 시 상점 배열에서 구매완료 삭제
+        {
+
+        }
+    }
     public class Inventory // 인벤토리 보기
     {
         item item = new item();
